@@ -397,13 +397,13 @@ nav.navbar.navbar-default {
     padding: 4px;
 	border-radius:50%;
 }
-.carousel .item{ 
+/* .carousel .item{ 
 	background:url(../images/ban2.jpg)no-repeat center 0px;
 	background-size:cover;  
 	height: 760px!important;
 	
-} 
-.carousel .item1{ 
+}  */
+/* .carousel .item1{ 
 	background:url(../images/ban4.jpg)no-repeat center 0px;
 	background-size:cover;  
 	height: 760px!important;
@@ -426,7 +426,7 @@ nav.navbar.navbar-default {
 	background-size:cover;
 	    height: 760px!important;
 	
-} 
+}  */
 .carousel-indicators li {
     display: inline-block;
     width: 14px !important;

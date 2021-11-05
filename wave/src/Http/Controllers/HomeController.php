@@ -3,6 +3,7 @@
 namespace Wave\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Banner;
 
 class HomeController extends \App\Http\Controllers\Controller
 {
@@ -19,7 +20,7 @@ class HomeController extends \App\Http\Controllers\Controller
     			return redirect('dashboard');
     		}
     	}
-
+        $listBanner = Banner::get();
         $seo = [
 
             'title'         => setting('site.title', 'Laravel Wave'),
@@ -29,6 +30,6 @@ class HomeController extends \App\Http\Controllers\Controller
 
         ];
 
-        return view('theme::home', compact('seo'));
+        return view('theme::home', compact('seo', 'listBanner'));
     }
 }
