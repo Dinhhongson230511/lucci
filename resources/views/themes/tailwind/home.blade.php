@@ -39,11 +39,11 @@
 					<form action="#" method="post">
 						<div class="cuisine"> 
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							<input type="text" name="Location" placeholder="Enter name" required="">
+							<input type="text" name="Location" placeholder="Tên của bạn" required="">
 						</div>
 						<div class="phone_email"> 
 							<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-							<input type="text" name="Phone" placeholder="Phone" required=""> 
+							<input type="text" name="Phone" placeholder="Số điện thoại" required=""> 
 						</div>
 						<div class="phone_email1"> 
 							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
@@ -53,20 +53,20 @@
 						<div class="agileits_reservation_grid">
 							<div  class="span1_of_1 book_date"> 
 								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-								<input class="date" id="datepicker" name="Text" placeholder="Select Date"  type="text" required="">
+								<input class="date" id="datepicker" name="Text" placeholder="Chọn ngày"  type="text" required="">
 							</div>
 							<div class="span1_of_1 section_room"> 
 								<span class="glyphicon glyphicon-time" aria-hidden="true"></span>  
-								<input type="text" name="Time" class="timepicker" value=" Time">	 
+								<input type="text" name="Time" class="timepicker" value="Thời gian">	 
 							</div>
 							<div class="span1_of_1 section_room">
 								<!-- start_section_room --> 
 								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 								<select id="country1" class="frm-field sect" required>
-									<option value="">People</option>
-									<option value="1">1 People</option>
-									<option value="2">2 People</option>         
-									<option value="3">More</option>
+									<option value="">Người</option>
+									<option value="1">1 Người</option>
+									<option value="2">2 Người</option>         
+									<option value="3">Hơn nữa</option>
 								</select> 
 							</div>  
 							<div class="clearfix"></div>
@@ -81,48 +81,30 @@
 	<div class="w3-about about-gap" id="about">
 		<div class="container">
 			<div class="w3-heading-all">
-				<h3>About us</h3>
+				<h3>Trách nhiệm & Dịch vụ</h3>
 			</div>
 		<div class="w3-about-grids">
 				<div class="col-md-6 w3-about-left-grid">
 					<div class=" w3-about-left-grid-inner-head">
 						<i class="fa fa-microphone" aria-hidden="true"></i>
-						<h3>Lets Talk about Hospitality</h3>
+						<h3>{{ $serviceHighlight ? $serviceHighlight->title : 'Nha khoa LUCCI - Niềng răng chỉnh nha công nghệ mới nhất nắn chỉnh toàn diện' }}</h3>
 					</div>
 					<div class=" w3-about-left-grid-inner2-head">
-						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec gravida, ante egestas egestas vulputate, elit risus maximus mauris, non gravida arcu justo eget est. Cras eu mauris nisl. Maecenas ut scelerisque metus.</h3>
+						<h3>{{ $serviceHighlight ? $serviceHighlight->sub_description : 'Nha khoa LUCCI luôn cảm ơn và trân trọng sự tin tưởng của khách hàng đã lựa chọn chúng tôi cùng đồng hành trên con đường lấy lại nụ cười hoàn thiện nhất. Được nhìn thấy khách hàng của mình đẹp hơn, thành công hơn đó chính là niềm hạnh phúc, là nỗ lực mà Nha khoa LUCCI luôn muốn hướng đến.' }}</h3>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-6 w3-about-right-grid">
-						<div class="col-md-8 w3-about-right-text1">
-							<h5>Lorem ipsum 109</h5>
-							<h4>Specialist1</h4>
-							<h3>Ut sed augue porttitor, vehicula eros in, vehicula elit. Aliquam ut ex aliquam risus vestibulum hendrerit.</h3>
-				
-						</div>
-						<div class="col-md-4 w3-about-right-img1">
-								<img src="images/a11.jpg" alt="img" />
-						</div>
-						<div class="clearfix"></div>
-						<div class="col-md-8 w3-about-right-text1">
-							<h5>Dunke alpha 212</h5>
-							<h4>Specialist2</h4>
-							<h3>Ut sed augue porttitor, vehicula eros in, vehicula elit. Aliquam ut ex aliquam risus vestibulum hendrerit.</h3>
-						</div>
-						<div class="col-md-4 w3-about-right-img1">
-								<img src="images/a121.jpg" alt="img" />
-						</div>
-						<div class="clearfix"></div>
-						<div class="col-md-8 w3-about-right-text1">
-							<h5>Monst ibram 143</h5>
-							<h4>Specialist3</h4>
-							<h3>Ut sed augue porttitor, vehicula eros in, vehicula elit. Aliquam ut ex aliquam risus vestibulum hendrerit.</h3>
-						</div>
-						<div class="col-md-4 w3-about-right-img1">
-							<img src="images/a13.jpg" alt="img" />
-						</div>
-						<div class="clearfix"></div>
+						@foreach ($services as $service)
+							<div class="col-md-8 w3-about-right-text1">
+								<h4>{{ $service->title }}</h4>
+								<h3>{{ $service->sub_description }}</h3>
+							</div>
+							<div class="col-md-4 w3-about-right-img1">
+								<img src="{{ asset('storage/'. $service->image) }}" alt="img" />
+							</div>
+							<div class="clearfix"></div>
+						@endforeach
 				</div>
 				<div class="clearfix"></div>
 		</div>
@@ -133,108 +115,25 @@
 <div class="services" id="services">
 	<div class="container">
 		<div class="w3-heading-all services-head">
-			<h3>Services</h3>
+			<h3>Đội ngũ của chúng tôi</h3>
 		</div>	
 
 		<div class="w3-services-grids">
-			<div class="col-md-4 w3-services-grids1">
-			<div class="w3-services-grid1">
-				<i class="fa fa-user-md" aria-hidden="true"></i>
-				<h3> Special Team</h3>
-				<div class="w3-services-grid1-left">
-					<h4>10 </h4>
-					<p>ipsum</p>
+			@foreach ($doctors as $doctor)
+				<div class="col-md-4 w3-services-grids1">
+					<div class="w3-services-grid1">
+						<img style='width:100%; object-fit: contain;' src="{{ asset('storage/'. $doctor->image) }}" alt="img" />
+						<h3>{{ $doctor->name }}</h3>
+						<p>
+							{{ $doctor->description }}
+						</p>
+						<div class="clearfix"></div>
+					</div>
 				</div>
-				<div class="w3-services-grid1-right">
-				<h4>5</h4>
-					<p>basusx</p>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			</div>
-			<div class="col-md-4 w3-services-grids1 ">
-			<div class=" w3-services-grid2">
-		<i class="fa fa-laptop" aria-hidden="true"></i>
-				<h3>Qualified Doctors</h3>
-			<div class="w3-services-grid1-left">
-					<h4>20 </h4>
-					<p>basus</p>
-				</div>
-				<div class="w3-services-grid1-right">
-				<h4>10</h4>
-					<p>basus</p>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			</div>
-			<div class="col-md-4 w3-services-grids1">
-			<div class=" w3-services-grid3">
-			<i class="fa fa-hospital-o" aria-hidden="true"></i>
-				<h3>Special sergery</h3>
-			<div class="w3-services-grid1-left">
-					<h4>15 </h4>
-					<p>mpsum</p>
-				</div>
-				<div class="w3-services-grid1-right">
-				<h4>20</h4>
-					<p>rasus</p>
-				</div>
-				<div class="clearfix"></div>
-		
-			</div>
-			</div>
-			
 			<div class="clearfix"></div>
-			<div class="w3-services-grid-bottom">
-			<div class="col-md-4 w3-services-grids1">
-			<div class="w3-services-grid4">
-							<i class="fa fa-heartbeat" aria-hidden="true"></i>
-				<h3>Cardiac Clinic</h3>
-				<div class="w3-services-grid1-left">
-					<h4>25 </h4>
-					<p>ipsum</p>
-				</div>
-				<div class="w3-services-grid1-right">
-				<h4>30</h4>
-					<p>basusx</p>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			</div>
-			<div class="col-md-4 w3-services-grids1">
-			<div class=" w3-services-grid5">
-							<i class="fa fa-flask" aria-hidden="true"></i>
-				<h3>Pediatric Clinic</h3>
-				<div class="w3-services-grid1-left">
-					<h4>35</h4>
-					<p>ipsum</p>
-				</div>
-				<div class="w3-services-grid1-right">
-				<h4>25</h4>
-					<p>basusx</p>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			</div>
-			<div class="col-md-4 w3-services-grids1">
-			<div class=" w3-services-grid6">
-							<i class="fa fa-ambulance" aria-hidden="true"></i>
-				<h3>Emergency Help</h3>
-				<div class="w3-services-grid1-left">
-					<h4>40 </h4>
-					<p>ipsum</p>
-				</div>
-				<div class="w3-services-grid1-right">
-				<h4>45</h4>
-					<p>basusx</p>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			</div>
-			
-			<div class="clearfix"></div>
+			@endforeach
 		</div>
-		</div>
+	</div>
 </div>
 </div>
 <!-- //services -->
@@ -242,7 +141,7 @@
 	<div class="testimonials" id="testimonials">
 		<div class="container">
 		<div class="w3-heading-all">
-			<h3>Testimonials</h3>
+			<h3>Khách Hàng</h3>
 		</div>
 			<div class="w3ls_testimonials_grids">
 				 <section class="center slider">

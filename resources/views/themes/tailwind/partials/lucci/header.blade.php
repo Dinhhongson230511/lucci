@@ -13,25 +13,19 @@
 						<span class="icon-bar"></span>
 					</button>
 					<div class="w3_navigation_pos">
-						<h1><a href="index.html">MediBulk</a></h1>
+						<h1><a href="index.html" style="margin-left: -16px;">Nha khoa Lucci</a></h1>
 					</div>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="services.html">Our Services</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
-							<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">Short Codes <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="icons.html">Icons</a></li>
-										<li><a href="typography.html">Typography</a></li>
-									</ul>
-							  </li>
-							<li><a href="contact.html">Contact</a></li>
+							<li class="active"><a href="{{ route('wave.home') }}">Trang Chủ</a></li>
+							<li><a href="{{ route('wave.about') }}">Về chúng tôi</a></li>
+							<li><a href="{{ route('wave.service') }}">Dịch Vụ</a></li>
+							<li><a href="{{ route('wave.gallery') }}">Thư Viện Ảnh</a></li>
+							<li><a href="">Tin tức</a></li>
+							<li><a href="{{ route('wave.contact') }}">Liên Hệ</a></li>
 						</ul>
 					</nav>
 				</div>

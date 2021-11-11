@@ -17,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment() == 'production') {
             $this->app['request']->server->set('HTTPS', true);
         }
+        $this->app->bind('path.public', function() {
+            return base_path('../public_html');
+        });
         $this->setSchemaDefaultLength();
     }
 

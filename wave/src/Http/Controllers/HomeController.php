@@ -4,6 +4,8 @@ namespace Wave\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Banner;
+use App\Service;
+use App\Doctor;
 
 class HomeController extends \App\Http\Controllers\Controller
 {
@@ -20,6 +22,9 @@ class HomeController extends \App\Http\Controllers\Controller
     			return redirect('dashboard');
     		}
     	}
+        $services = Service::where('status', 0)->orderBy('created_at')->limit(3)->get();
+        $serviceHighlight = Service::where('status', 1)->orderBy('created_at')->first();
+        $doctors = Doctor::limit(6)->get();
         $listBanner = Banner::get();
         $seo = [
 
@@ -30,6 +35,6 @@ class HomeController extends \App\Http\Controllers\Controller
 
         ];
 
-        return view('theme::home', compact('seo', 'listBanner'));
+        return view('theme::home', compact('seo', 'listBanner', 'serviceHighlight', 'doctors', 'services'));
     }
 }

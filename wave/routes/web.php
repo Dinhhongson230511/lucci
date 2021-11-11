@@ -2,7 +2,16 @@
 
 Route::impersonate();
 
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});
+
 Route::get('/', '\Wave\Http\Controllers\HomeController@index')->name('wave.home');
+Route::get('/ve-chung-toi', '\Wave\Http\Controllers\AboutController@index')->name('wave.about');
+Route::get('/lien-he', '\Wave\Http\Controllers\ContactController@index')->name('wave.contact');
+Route::get('/thu-vien-anh', '\Wave\Http\Controllers\GalleryController@index')->name('wave.gallery');
+Route::get('/dich-vu', '\Wave\Http\Controllers\ServiceController@index')->name('wave.service');
+
 Route::get('@{username}', '\Wave\Http\Controllers\ProfileController@index')->name('wave.profile');
 
 // Documentation routes
