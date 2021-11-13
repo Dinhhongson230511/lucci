@@ -14,12 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->environment() == 'production') {
-            $this->app['request']->server->set('HTTPS', true);
-        }
-        $this->app->bind('path.public', function() {
-            return base_path('../public_html');
-        });
+        // if ($this->app->environment() == 'production') {
+        //     $this->app['request']->server->set('HTTPS', true);
+        // }
+        // $this->app->bind('path.public', function() {
+        //     return base_path('../public_html');
+        // });
         $this->setSchemaDefaultLength();
     }
 
