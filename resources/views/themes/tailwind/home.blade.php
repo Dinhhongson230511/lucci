@@ -72,7 +72,7 @@
 			<div class="clearfix"></div>
 		</div>
 		<div class="date_btn">
-			<input type="submit" value="Book An Appointment" />
+			<input type="submit" value="Đặt Lịch" />
 		</div>
 	</form>
 </div>

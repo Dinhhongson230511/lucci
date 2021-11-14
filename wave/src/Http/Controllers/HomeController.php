@@ -23,7 +23,7 @@ class HomeController extends \App\Http\Controllers\Controller
                 return redirect('dashboard');
             }
         }
-        $services = Service::where('status', 0)->orderBy('created_at')->limit(3)->get();
+        $services = Service::where('status', 0)->orderBy('created_at')->limit(5)->get();
         $serviceHighlight = Service::where('status', 1)->orderBy('created_at')->first();
         $doctors = Doctor::limit(6)->get();
         $listBanner = Banner::get();

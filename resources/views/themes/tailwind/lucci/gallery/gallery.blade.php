@@ -13,7 +13,7 @@
 		@foreach ($gallery as $value)
 		<div class="col-sm-3 w3_tab_img_left">
 			<div class="demo">
-				<a class="cm-overlay" href="images/g2.jpg">
+				<a class="cm-overlay" href="{{ asset('storage/'.$value->image) }}">
 					<figure class="imghvr-shutter-in-out-diag-2">
 						<img  src="{{ asset('storage/'.$value->image) }}" alt=" " class="img-responsive" />
 					</figure>
