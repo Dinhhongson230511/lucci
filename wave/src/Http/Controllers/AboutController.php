@@ -12,6 +12,14 @@ class AboutController extends \App\Http\Controllers\Controller
     {
         $page = Page::where('slug', '=', 've-chung-toi')->first();
         $doctor = Doctor::get();
-        return view('themes.tailwind.lucci.about.about', compact('page', 'doctor'));
+        $seo = [
+
+            'title'         => 'Giới thiệu khoa Lucci',
+            'description'   => 'Giới thiệu về Nha khoa Lucci, Lucci dental',
+            'image'         => asset('storage/'.setting('site.seo_img')),
+            'type'          => 'website'
+
+        ];
+        return view('themes.tailwind.lucci.about.about', compact('page', 'doctor', 'seo'));
     }
 }

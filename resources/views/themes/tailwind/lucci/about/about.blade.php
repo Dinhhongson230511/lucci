@@ -43,21 +43,20 @@
 		</div>
 
 		<div class="w3-services-grids">
-			@foreach ($doctor as $value)
+			@foreach ($doctor as $key => $value)
 			<div class="col-md-4 w3-services-grids1" style="margin-top: 20px;">
-
 				<div class="w3-services-grid1">
 					<img style='width:100%; object-fit: contain;' src="{{ asset('storage/'. $value->image) }}" alt="img" />
 					<h3>{{ $value->name }}</h3>
 					<p style="padding-bottom:20px">
 						{{ $value->description }}
 					</p>
-					<div class="clearfix"></div>
 				</div>
-
 			</div>
+			@if (($key + 1) % 3 == 0)
+				<div class="clearfix"></div>
+			@endif
 			@endforeach
-			<div class="clearfix"></div>
 
 		</div>
 

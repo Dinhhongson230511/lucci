@@ -720,7 +720,7 @@ nav.navbar.navbar-default {
 	margin-bottom:40px;
 }
 .w3-about-left-grid-inner-head {
-    background: url(../images/ab33.jpg) no-repeat 0px 0px;
+    background: url(../images/introduce.jpg) no-repeat 0px 0px;
     background-size: cover;
    min-height: 400px;
 }
@@ -1004,9 +1004,9 @@ div#services {
 }
 /*-- //offer --*/
 /*-- offer-bottom --*/
-.w3l_services_footer_top_right_main:nth-child(2) {
+/* .w3l_services_footer_top_right_main:nth-child(2) {
     margin: 3em 0;
-}
+} */
 .w3l_services_footer_top_left img {
     margin: 0 auto;
 }

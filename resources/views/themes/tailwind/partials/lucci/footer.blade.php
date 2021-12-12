@@ -5,7 +5,7 @@
 				<h2><a href="index.html">NHA KHOA LUCCI</a></h2>
 				<p>Nha khoa LUCCI luôn cảm ơn và trân trọng sự tin tưởng của khách hàng đã lựa chọn chúng tôi cùng đồng hành trên con đường lấy lại nụ cười hoàn thiện nhất. Được nhìn thấy khách hàng của mình đẹp hơn, thành công hơn đó chính là niềm hạnh phúc, là nỗ lực mà Nha khoa LUCCI luôn muốn hướng đến.</p>
 				<ul class="social-nav model-3d-0 footer-social w3_agile_social two">
-					<li><a href="#" class="facebook">
+					<li><a href="https://www.facebook.com/nhakhoalucci.vn" class="facebook">
 							<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
 						</a></li>
@@ -69,9 +69,9 @@
 							<i class="fa fa-map-marker" aria-hidden="true"></i>
 						</div>
 						<div class="w3-address-right">
-							<h6>Location</h6>
-							<p>671 Trương Định, Hoàng Mai, Hà nội.
-							</p>
+							<h6>Địa chỉ</h6>
+							<p>- 671 Trương Định, Hoàng Mai, Hà nội.</p>
+							<p>- Ninh Bình: Gia Viễn.</p>
 						</div>
 					</div>
 				</div>
@@ -81,7 +81,7 @@
 
 			<div class="clearfix"></div>
 
-			<p class="copy-right">&copy;2018 MediBulk. All rights reserved | Design by <a href="">W3layouts</a></p>
+			<p class="copy-right">&copy;2021 Design by <a href="">Nha khoa Lucci</a></p>
 		</div>
 	</div>
 </div>

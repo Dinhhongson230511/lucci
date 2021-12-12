@@ -11,7 +11,9 @@ Route::get('/ve-chung-toi', '\Wave\Http\Controllers\AboutController@index')->nam
 Route::get('/lien-he', '\Wave\Http\Controllers\ContactController@index')->name('wave.contact');
 Route::get('/thu-vien-anh', '\Wave\Http\Controllers\GalleryController@index')->name('wave.gallery');
 Route::get('/dich-vu', '\Wave\Http\Controllers\ServiceController@index')->name('wave.service');
-
+Route::get('/tin-tuc', '\Wave\Http\Controllers\BlogController@index')->name('wave.news');
+Route::get('/tin-tuc/{slug}', '\Wave\Http\Controllers\BlogController@detail')->name('wave.news.detail');
+Route::post('/appointments', '\Wave\Http\Controllers\HomeController@create')->name('wave.appointments.create');
 Route::get('@{username}', '\Wave\Http\Controllers\ProfileController@index')->name('wave.profile');
 
 // Documentation routes

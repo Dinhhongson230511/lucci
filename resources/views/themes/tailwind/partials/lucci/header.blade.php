@@ -19,12 +19,12 @@
 					<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="{{ route('wave.home') }}">Trang Chủ</a></li>
-								<li><a href="{{ route('wave.about') }}">Về chúng tôi</a></li>
-								<li><a href="{{ route('wave.service') }}">Dịch Vụ</a></li>
-								<li><a href="{{ route('wave.gallery') }}">Thư Viện Ảnh</a></li>
-								<li><a href="">Tin tức</a></li>
-								<li><a href="{{ route('wave.contact') }}">Liên Hệ</a></li>
+								<li class="{{  Request::path() == '/' ? 'active' : '' }}"><a href="{{ route('wave.home') }}">Trang Chủ</a></li>
+								<li class="{{  Request::path() == 've-chung-toi' ? 'active' : '' }}"><a href="{{ route('wave.about') }}">Về chúng tôi</a></li>
+								<li class="{{ Request::path() == 'dich-vu' ? 'active' : '' }}"><a href="{{ route('wave.service') }}">Dịch Vụ</a></li>
+								<li class="{{ Request::path() == 'thu-vien-anh' ? 'active' : '' }}"><a href="{{ route('wave.gallery') }}">Thư Viện Ảnh</a></li>
+								<li class="{{ Request::path() == 'tin-tuc' ? 'active' : '' }}"><a href="{{ route('wave.news') }}">Tin tức</a></li>
+								<li class="{{ Request::path() == 'lien-he' ? 'active' : '' }}"><a href="{{ route('wave.contact') }}">Liên Hệ</a></li>
 							</ul>
 						</nav>
 					</div>

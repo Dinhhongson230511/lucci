@@ -11,6 +11,14 @@ class GalleryController extends \App\Http\Controllers\Controller
     {
         $gallery = [];
         $gallery = Gallery::get();
-        return view('themes.tailwind.lucci.gallery.gallery', compact('gallery'));
+        $seo = [
+
+            'title'         => 'Thư viện ảnh của khoa Lucci',
+            'description'   => 'Thư viện ảnh Nha khoa Lucci, Lucci dental',
+            'image'         => asset('storage/'.setting('site.seo_img')),
+            'type'          => 'website'
+
+        ];
+        return view('themes.tailwind.lucci.gallery.gallery', compact('gallery', 'seo'));
     }
 }

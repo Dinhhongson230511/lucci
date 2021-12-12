@@ -10,15 +10,19 @@ class BlogController extends \App\Http\Controllers\Controller
 {
     public function index(){
     	
-        $posts = Post::orderBy('created_at', 'DESC')->paginate(6);
+        $posts = Post::orderBy('created_at', 'DESC')->paginate(10);
         $categories = Category::all();
 
-    	$seo = [
-    		'seo_title' => 'Blog',
-            'seo_description' => 'Our Blog',
-       	];
+        $seo = [
 
-    	return view('theme::blog.index', compact('posts', 'categories', 'seo'));
+            'title'         => 'Tin tức của nha khoa Lucci',
+            'description'   => 'Tin tin của Nha khoa Lucci, Lucci dental',
+            'image'         => asset('storage/'.setting('site.seo_img')),
+            'type'          => 'website'
+
+        ];
+
+    	return view('themes.tailwind.lucci.news.index', compact('posts', 'categories', 'seo'));
     }
 
     public function category($slug){
@@ -27,23 +31,30 @@ class BlogController extends \App\Http\Controllers\Controller
         $posts = $category->posts()->orderBy('created_at', 'DESC')->paginate(6);
         $categories = Category::all();
 
-        $seo = [
-            'seo_title' => $category->name . '- Blog',
-            'seo_description' => $category->name . '- Blog',
-        ];
-
         return view('theme::blog.index', compact('posts', 'category', 'categories', 'seo'));
     }
 
-    public function post($category, $slug){
+    public function detail($slug){
 
     	$post = Post::where('slug', '=', $slug)->firstOrFail();
 
         $seo = [
-            'seo_title' => $post->title,
-            'seo_description' => $post->seo_description,
+            'title' => $post->seo_title ? $post->seo_title : $post->title,
+            'description' => $post->meta_description  ? $this->truncate($post->meta_description, 135, true) : $this->truncate($post->excerpt, 135, true),
+            'image'         => asset('storage/'.$post->image),
+            'type'          => 'website'
         ];
 
-    	return view('theme::blog.post', compact('post', 'seo'));
+    	return view('themes.tailwind.lucci.news.detail', compact('post', 'seo'));
+    }
+
+    function truncate($text, $maxlength, $dots = true) {
+        if(strlen($text) > $maxlength) {
+            if ( $dots ) return substr($text, 0, ($maxlength - 4)) . ' ...';
+            else return substr($text, 0, ($maxlength - 4));
+        } else {
+            return $text;
+        }
+    
     }
 }
